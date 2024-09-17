@@ -23,9 +23,9 @@ client.on('ready', () => {
     console.log('Bot is ready!');
 });
 
-function insertMessageToDB(number, time, message, type_message) {
-    const query = 'INSERT INTO message (number, time, message, type_message) VALUES (?, ?, ?, ?)';
-    db.execute(query, [number, time, message, type_message], (err, results) => {
+function insertMessageToDB(number, time, message, type_message, contactName) {
+    const query = 'INSERT INTO message (number, time, message, type_message, name) VALUES (?, ?, ?, ?, ?)';
+    db.execute(query, [number, time, message, type_message, contactName], (err, results) => {
         if (err) {
             console.log("Pesan Gagal");
             console.error('Error inserting message into database:', err);
